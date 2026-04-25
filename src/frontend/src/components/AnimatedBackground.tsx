@@ -13,26 +13,26 @@ interface Orb {
   pulseSpeed: number;
 }
 
-// Navy/purple/lavender palette: #DFD9F7, #E0FFFE, #BDE3F0, plus variants
+// Strict monochrome palette: whites and greys only
 const ORB_COLORS: [number, number, number][] = [
-  [223, 217, 247], // #DFD9F7 light lavender
-  [224, 255, 254], // #E0FFFE very light cyan/mint
-  [189, 227, 240], // #BDE3F0 light blue
-  [168, 196, 240], // soft blue variant
-  [197, 184, 245], // soft purple variant
-  [212, 240, 255], // icy blue
-  [232, 228, 255], // pale lavender
-  [184, 212, 248], // blue-lavender
+  [255, 255, 255], // #ffffff pure white
+  [224, 224, 224], // #e0e0e0
+  [204, 204, 204], // #cccccc
+  [170, 170, 170], // #aaaaaa
+  [136, 136, 136], // #888888
+  [102, 102, 102], // #666666
+  [245, 245, 245], // #f5f5f5
+  [221, 221, 221], // #dddddd
 ];
 
 const ORB_COUNT = 32;
-const NEIGHBORS = 3; // each orb always connects to its N nearest neighbors
+const NEIGHBORS = 3;
 const MOUSE_RADIUS = 100;
-const MOUSE_FORCE = 0.12; // strong enough to visibly push orbs
+const MOUSE_FORCE = 0.12;
 const MAX_SPEED = 6.0;
 const MIN_ORB_DIST = 50;
 const ORB_REPULSION_FORCE = 0.3;
-const DAMPING = 0.985; // slight damping — orbs carry momentum fluidly
+const DAMPING = 0.985;
 
 function createOrb(width: number, height: number): Orb {
   const color = ORB_COLORS[Math.floor(Math.random() * ORB_COLORS.length)];
@@ -88,11 +88,11 @@ export function AnimatedBackground() {
       const orbs = orbsRef.current;
       const mouse = mouseRef.current;
 
-      // Deep navy base #020B2D
-      ctx.fillStyle = "#020B2D";
+      // Pure black background
+      ctx.fillStyle = "#000000";
       ctx.fillRect(0, 0, W, H);
 
-      // Subtle central nebula glow — purple tones
+      // Very subtle white center glow — barely perceptible
       const bgGrad = ctx.createRadialGradient(
         W * 0.5,
         H * 0.4,
@@ -101,41 +101,12 @@ export function AnimatedBackground() {
         H * 0.4,
         W * 0.7,
       );
-      bgGrad.addColorStop(0, "rgba(45,10,78,0.22)");
-      bgGrad.addColorStop(0.45, "rgba(30,10,70,0.10)");
-      bgGrad.addColorStop(1, "rgba(2,11,45,0)");
+      bgGrad.addColorStop(0, "rgba(255,255,255,0.01)");
+      bgGrad.addColorStop(1, "rgba(0,0,0,0)");
       ctx.fillStyle = bgGrad;
       ctx.fillRect(0, 0, W, H);
 
-      // Top-right lavender shimmer
-      const bgGrad2 = ctx.createRadialGradient(
-        W * 0.82,
-        H * 0.12,
-        0,
-        W * 0.82,
-        H * 0.12,
-        W * 0.45,
-      );
-      bgGrad2.addColorStop(0, "rgba(189,227,240,0.09)");
-      bgGrad2.addColorStop(1, "rgba(2,11,45,0)");
-      ctx.fillStyle = bgGrad2;
-      ctx.fillRect(0, 0, W, H);
-
-      // Bottom-left purple accent
-      const bgGrad3 = ctx.createRadialGradient(
-        W * 0.1,
-        H * 0.85,
-        0,
-        W * 0.1,
-        H * 0.85,
-        W * 0.35,
-      );
-      bgGrad3.addColorStop(0, "rgba(45,10,78,0.12)");
-      bgGrad3.addColorStop(1, "rgba(2,11,45,0)");
-      ctx.fillStyle = bgGrad3;
-      ctx.fillRect(0, 0, W, H);
-
-      // ── Physics update ──────────────────────────────────────────────────────
+      // ── Physics update ─────────────────────────────────────────────────────
 
       for (let i = 0; i < orbs.length; i++) {
         const orb = orbs[i];
@@ -185,7 +156,7 @@ export function AnimatedBackground() {
         orb.x += orb.vx;
         orb.y += orb.vy;
 
-        // Hard clamp + bounce
+        // Hard clamp + bounce — orbs never leave screen
         const pad = orb.radius + 5;
         if (orb.x < pad) {
           orb.x = pad;
@@ -204,15 +175,11 @@ export function AnimatedBackground() {
       }
 
       // ── Draw rods: always connect each orb to its NEIGHBORS nearest orbs ──
-      // No thresholds, no disconnect logic — rods are recalculated every frame
-      // and always draw from the actual orb positions.
-
       const drawn = new Set<string>();
 
       for (let i = 0; i < orbs.length; i++) {
         const a = orbs[i];
 
-        // Build sorted list of neighbors by distance
         const dists: { j: number; d: number }[] = [];
         for (let j = 0; j < orbs.length; j++) {
           if (i === j) continue;
@@ -222,7 +189,6 @@ export function AnimatedBackground() {
         }
         dists.sort((x, y) => x.d - y.d);
 
-        // Draw up to NEIGHBORS connections
         let drawn_count = 0;
         for (const { j, d } of dists) {
           if (drawn_count >= NEIGHBORS) break;
@@ -237,12 +203,10 @@ export function AnimatedBackground() {
 
           const b = orbs[j];
 
-          // Alpha fades slightly with distance but never drops to zero
           const maxDist = Math.sqrt(W * W + H * H);
           const proximityFade =
-            0.35 + 0.45 * Math.max(0, 1 - d / (maxDist * 0.35));
+            0.25 + 0.3 * Math.max(0, 1 - d / (maxDist * 0.35));
 
-          // Mouse proximity to midpoint for glow boost
           const mx = (a.x + b.x) / 2;
           const my = (a.y + b.y) / 2;
           const mdx = mouse.x - mx;
@@ -250,33 +214,25 @@ export function AnimatedBackground() {
           const mouseMidDist = Math.sqrt(mdx * mdx + mdy * mdy);
           const mouseGlow = Math.max(0, 1 - mouseMidDist / 260);
 
-          const alpha = Math.min(0.65, proximityFade + mouseGlow * 0.2);
+          const alpha = Math.min(0.5, proximityFade + mouseGlow * 0.2);
 
-          // Draw line directly between actual orb positions — always connected
+          // White lines with transparent fade
           ctx.beginPath();
           const lineGrad = ctx.createLinearGradient(a.x, a.y, b.x, b.y);
-          lineGrad.addColorStop(
-            0,
-            `rgba(${a.color[0]},${a.color[1]},${a.color[2]},${alpha})`,
-          );
-          lineGrad.addColorStop(
-            1,
-            `rgba(${b.color[0]},${b.color[1]},${b.color[2]},${alpha})`,
-          );
+          lineGrad.addColorStop(0, `rgba(255,255,255,${alpha})`);
+          lineGrad.addColorStop(0.5, `rgba(255,255,255,${alpha * 0.6})`);
+          lineGrad.addColorStop(1, `rgba(255,255,255,${alpha * 0.15})`);
           ctx.strokeStyle = lineGrad;
-          ctx.lineWidth = mouseGlow > 0.3 ? 1.3 : 0.65;
+          ctx.lineWidth = mouseGlow > 0.3 ? 1.2 : 0.55;
           ctx.moveTo(a.x, a.y);
           ctx.lineTo(b.x, b.y);
           ctx.stroke();
 
-          // Extra glow when mouse is near
+          // Subtle white glow when mouse is near
           if (mouseGlow > 0.15) {
-            const r = Math.round((a.color[0] + b.color[0]) / 2);
-            const g = Math.round((a.color[1] + b.color[1]) / 2);
-            const bv = Math.round((a.color[2] + b.color[2]) / 2);
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(${r},${g},${bv},${mouseGlow * 0.25})`;
-            ctx.lineWidth = 3.5;
+            ctx.strokeStyle = `rgba(255,255,255,${mouseGlow * 0.18})`;
+            ctx.lineWidth = 3;
             ctx.filter = "blur(2px)";
             ctx.moveTo(a.x, a.y);
             ctx.lineTo(b.x, b.y);
@@ -286,14 +242,14 @@ export function AnimatedBackground() {
         }
       }
 
-      // ── Draw orbs ──────────────────────────────────────────────────────────
+      // ── Draw orbs ─────────────────────────────────────────────────────────
       for (const orb of orbs) {
         const mdx = mouse.x - orb.x;
         const mdy = mouse.y - orb.y;
         const mouseDist = Math.sqrt(mdx * mdx + mdy * mdy);
         const glowBoost = Math.max(0, 1 - mouseDist / MOUSE_RADIUS);
 
-        // Outer glow
+        // Outer white glow
         const glowR = orb.radius * (4 + glowBoost * 3);
         const glow = ctx.createRadialGradient(
           orb.x,
@@ -305,11 +261,11 @@ export function AnimatedBackground() {
         );
         glow.addColorStop(
           0,
-          `rgba(${orb.color[0]},${orb.color[1]},${orb.color[2]},${orb.alpha * (0.28 + glowBoost * 0.18)})`,
+          `rgba(255,255,255,${orb.alpha * (0.22 + glowBoost * 0.18)})`,
         );
         glow.addColorStop(
           0.4,
-          `rgba(${orb.color[0]},${orb.color[1]},${orb.color[2]},${orb.alpha * (0.1 + glowBoost * 0.06)})`,
+          `rgba(255,255,255,${orb.alpha * (0.07 + glowBoost * 0.06)})`,
         );
         glow.addColorStop(1, "rgba(0,0,0,0)");
         ctx.beginPath();
@@ -317,7 +273,7 @@ export function AnimatedBackground() {
         ctx.fillStyle = glow;
         ctx.fill();
 
-        // Core orb
+        // Core orb — white center, grey edge
         const core = ctx.createRadialGradient(
           orb.x - orb.radius * 0.3,
           orb.y - orb.radius * 0.3,
@@ -328,11 +284,11 @@ export function AnimatedBackground() {
         );
         core.addColorStop(
           0,
-          `rgba(240,248,255,${orb.alpha * (0.75 + glowBoost * 0.25)})`,
+          `rgba(255,255,255,${orb.alpha * (0.9 + glowBoost * 0.1)})`,
         );
         core.addColorStop(
-          0.4,
-          `rgba(${orb.color[0]},${orb.color[1]},${orb.color[2]},${orb.alpha * (0.95 + glowBoost * 0.05)})`,
+          0.5,
+          `rgba(${orb.color[0]},${orb.color[1]},${orb.color[2]},${orb.alpha * (0.85 + glowBoost * 0.15)})`,
         );
         core.addColorStop(
           1,
@@ -344,7 +300,7 @@ export function AnimatedBackground() {
         ctx.fill();
       }
 
-      // Subtle cursor halo — lavender tones
+      // Subtle white cursor halo
       if (mouse.x > 0 && mouse.x < W) {
         const cursorGlow = ctx.createRadialGradient(
           mouse.x,
@@ -352,13 +308,13 @@ export function AnimatedBackground() {
           0,
           mouse.x,
           mouse.y,
-          60,
+          55,
         );
-        cursorGlow.addColorStop(0, "rgba(189,227,240,0.12)");
-        cursorGlow.addColorStop(0.5, "rgba(45,10,78,0.06)");
+        cursorGlow.addColorStop(0, "rgba(255,255,255,0.07)");
+        cursorGlow.addColorStop(0.5, "rgba(255,255,255,0.02)");
         cursorGlow.addColorStop(1, "rgba(0,0,0,0)");
         ctx.beginPath();
-        ctx.arc(mouse.x, mouse.y, 60, 0, Math.PI * 2);
+        ctx.arc(mouse.x, mouse.y, 55, 0, Math.PI * 2);
         ctx.fillStyle = cursorGlow;
         ctx.fill();
       }

@@ -1,7 +1,8 @@
 import { ArrowDown } from "lucide-react";
 import { motion } from "motion/react";
 
-const spring = { type: "spring", stiffness: 200, damping: 20 } as const;
+// Premium expo-out easing — smooth, confident, no bounce
+const REVEAL_EASE = [0.16, 1, 0.3, 1] as const;
 
 export function Hero() {
   const scrollTo = (id: string) =>
@@ -12,78 +13,98 @@ export function Hero() {
       id="hero"
       className="relative min-h-screen flex flex-col items-center justify-center text-center overflow-hidden"
     >
-      {/* Decorative radial spotlight — purple/lavender */}
+      {/* Very subtle white bottom glow — replaces colored spotlight */}
       <div
-        className="pointer-events-none absolute inset-0 flex items-center justify-center"
+        className="pointer-events-none absolute inset-0"
         aria-hidden="true"
-      >
-        <div
-          className="w-[700px] h-[700px] rounded-full"
-          style={{
-            background:
-              "radial-gradient(circle, rgba(45,10,78,0.35) 0%, rgba(189,227,240,0.08) 50%, transparent 70%)",
-            filter: "blur(40px)",
-          }}
-        />
-      </div>
+        style={{
+          background:
+            "radial-gradient(ellipse at 50% 100%, rgba(255,255,255,0.04) 0%, transparent 60%)",
+        }}
+      />
 
       <div className="relative z-10 max-w-4xl mx-auto px-6 pt-24">
         {/* Status pill */}
         <motion.div
-          className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full border border-[#BDE3F0]/70 bg-[#2D0A4E]/60 text-[#DFD9F7] text-sm font-mono backdrop-blur-sm"
-          initial={{ opacity: 0, y: -30, scale: 0.9 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ ...spring, delay: 0.05 }}
+          className="inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-full text-sm font-mono"
+          style={{
+            background: "#1a1a1a",
+            border: "1px solid #444",
+            color: "#888",
+          }}
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: REVEAL_EASE, delay: 0.05 }}
         >
-          <span className="w-2 h-2 rounded-full bg-[#E0FFFE] animate-pulse" />
+          <span
+            className="w-1.5 h-1.5 rounded-full animate-pulse"
+            style={{ background: "#666" }}
+          />
           10th Grade · Boarding School · Dubai
         </motion.div>
 
-        {/* Name */}
-        <motion.h1
-          className="font-display text-6xl md:text-8xl font-bold leading-none tracking-tight mb-4"
-          initial={{ opacity: 0, y: 60, skewY: 4 }}
-          animate={{ opacity: 1, y: 0, skewY: 0 }}
-          transition={{ ...spring, delay: 0.15 }}
-        >
-          <span className="gradient-accent">Swarit</span>
+        {/* Name — signature reveal animation */}
+        <h1 className="font-display text-6xl md:text-8xl font-semibold leading-none tracking-tight mb-4">
+          {/* "Swarit" — overflow:hidden clips the slide-in to create mask reveal */}
+          <div className="overflow-hidden inline-block">
+            <motion.span
+              className="inline-block text-white"
+              initial={{ x: -40, opacity: 0, filter: "blur(3px)" }}
+              animate={{ x: 0, opacity: 1, filter: "blur(0px)" }}
+              transition={{
+                duration: 1.1,
+                ease: REVEAL_EASE,
+                delay: 0.2,
+              }}
+            >
+              Swarit
+            </motion.span>
+          </div>
           <br />
-          <motion.span
-            className="text-[#DFD9F7]"
-            initial={{ opacity: 0, x: -40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ ...spring, delay: 0.28 }}
-          >
-            Sawarkar
-          </motion.span>
-        </motion.h1>
+          {/* "Sawarkar" — 180ms stagger after Swarit */}
+          <div className="overflow-hidden inline-block">
+            <motion.span
+              className="inline-block text-white"
+              initial={{ x: -40, opacity: 0, filter: "blur(3px)" }}
+              animate={{ x: 0, opacity: 1, filter: "blur(0px)" }}
+              transition={{
+                duration: 1.1,
+                ease: REVEAL_EASE,
+                delay: 0.38,
+              }}
+            >
+              Sawarkar
+            </motion.span>
+          </div>
+        </h1>
 
         {/* Tagline */}
         <motion.p
-          className="text-xl md:text-2xl text-[#DFD9F7]/75 max-w-2xl mx-auto mt-6 leading-relaxed font-body"
-          initial={{ opacity: 0, y: 24 }}
+          className="text-xl md:text-2xl max-w-2xl mx-auto mt-6 leading-relaxed font-body"
+          style={{ color: "#aaa" }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{
-            duration: 0.7,
-            delay: 0.42,
-            ease: [0.25, 0.46, 0.45, 0.94],
+            duration: 0.8,
+            delay: 0.55,
+            ease: REVEAL_EASE,
           }}
         >
           Roboticist. Builder. Speaker. Writer.
           <br />
-          <span className="text-[#E0FFFE]/90">
+          <span style={{ color: "#666" }}>
             15 years old and already making things that matter.
           </span>
         </motion.p>
 
-        {/* Tags */}
+        {/* Skill tags */}
         <motion.div
           className="flex flex-wrap items-center justify-center gap-3 mt-8"
           initial="hidden"
           animate="visible"
           variants={{
             visible: {
-              transition: { staggerChildren: 0.1, delayChildren: 0.55 },
+              transition: { staggerChildren: 0.1, delayChildren: 0.65 },
             },
             hidden: {},
           }}
@@ -96,12 +117,17 @@ export function Hero() {
           ].map((tag) => (
             <motion.span
               key={tag}
-              className="px-3 py-1.5 rounded-full bg-[#2D0A4E]/70 border border-[#BDE3F0]/70 text-sm text-[#DFD9F7]/90 font-body backdrop-blur-sm"
+              className="px-3 py-1.5 rounded-full text-sm font-body"
+              style={{
+                background: "#111",
+                border: "1px solid #333",
+                color: "#aaa",
+              }}
               variants={{
-                hidden: { opacity: 0, y: 20, scale: 0.85 },
+                hidden: { opacity: 0, y: 16, scale: 0.88 },
                 visible: { opacity: 1, y: 0, scale: 1 },
               }}
-              transition={{ type: "spring", stiffness: 260, damping: 20 }}
+              transition={{ type: "spring", stiffness: 240, damping: 22 }}
             >
               {tag}
             </motion.span>
@@ -111,30 +137,53 @@ export function Hero() {
         {/* CTAs */}
         <motion.div
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10"
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{
-            duration: 0.7,
-            delay: 0.85,
-            ease: [0.25, 0.46, 0.45, 0.94],
+            duration: 0.8,
+            delay: 0.9,
+            ease: REVEAL_EASE,
           }}
         >
+          {/* Primary CTA — white border, white text, fills white on hover */}
           <motion.button
             type="button"
             onClick={() => scrollTo("achievements")}
-            className="px-8 py-3.5 rounded-xl font-semibold bg-[#DFD9F7] text-[#020B2D] hover:bg-[#E0FFFE] border border-[#BDE3F0] transition-all duration-200 glow-accent"
+            className="px-8 py-3.5 rounded-xl font-semibold transition-all duration-250"
+            style={{
+              border: "1px solid rgba(255,255,255,0.85)",
+              color: "#fff",
+              background: "transparent",
+            }}
             data-ocid="hero-cta-achievements"
-            whileHover={{ scale: 1.05, y: -2 }}
+            whileHover={{
+              scale: 1.04,
+              y: -2,
+              backgroundColor: "#ffffff",
+              color: "#000000",
+            }}
             whileTap={{ scale: 0.97 }}
           >
             See My Work
           </motion.button>
+
+          {/* Secondary CTA — dimmer border, grey text */}
           <motion.button
             type="button"
             onClick={() => scrollTo("contact")}
-            className="px-8 py-3.5 rounded-xl font-medium border border-[#BDE3F0]/70 text-[#DFD9F7] hover:bg-[#2D0A4E]/60 hover:border-[#E0FFFE] transition-all duration-200 backdrop-blur-sm"
+            className="px-8 py-3.5 rounded-xl font-medium transition-all duration-250"
+            style={{
+              border: "1px solid rgba(255,255,255,0.25)",
+              color: "#aaa",
+              background: "transparent",
+            }}
             data-ocid="hero-cta-contact"
-            whileHover={{ scale: 1.04, y: -2 }}
+            whileHover={{
+              scale: 1.03,
+              y: -2,
+              borderColor: "rgba(255,255,255,0.7)",
+              color: "#fff",
+            }}
             whileTap={{ scale: 0.97 }}
           >
             Get in Touch
@@ -146,18 +195,20 @@ export function Hero() {
       <motion.button
         type="button"
         onClick={() => scrollTo("about")}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-[#BDE3F0]/70 hover:text-[#E0FFFE] transition-colors"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 transition-colors"
+        style={{ color: "#444" }}
         aria-label="Scroll down"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1, y: [0, 8, 0] }}
         transition={{
           duration: 1.8,
-          delay: 1.2,
+          delay: 1.3,
           repeat: Number.POSITIVE_INFINITY,
           ease: "easeInOut",
         }}
+        whileHover={{ color: "#aaaaaa" } as Record<string, string>}
       >
-        <ArrowDown size={24} />
+        <ArrowDown size={22} />
       </motion.button>
     </section>
   );

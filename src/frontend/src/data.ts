@@ -1,6 +1,7 @@
 import type {
   Achievement,
   ContactLink,
+  IdeaLabItem,
   Project,
   SkillGroup,
   TimelineEvent,
@@ -189,11 +190,11 @@ export const timeline: TimelineEvent[] = [
   },
   {
     id: "t6",
-    year: "2025 to Present",
-    title: "CMO at MUNIFY",
+    year: "2025",
+    title: "Ex-CMO at MUNIFY",
     organization: "MUNIFY",
     description:
-      "Appointed Chief Marketing Officer: building brand strategy, directing videos, and leading content for a growing MUN platform. Ongoing.",
+      "Previously served as CMO at MUNIFY, helping shape brand direction, content strategy, and video-led marketing for a Model United Nations platform.",
     type: "experience",
     websiteUrl: "https://munifyx.com",
   },
@@ -264,5 +265,40 @@ export const contactLinks: ContactLink[] = [
     label: "+91 99608 79063",
     href: "",
     icon: "phone",
+  },
+];
+
+export const ideaLabItems: IdeaLabItem[] = [
+  {
+    id: "idea1",
+    title: "Minecraft Creator Timeline Tool",
+    description:
+      "An AI-assisted Minecraft creator tool that logs important gameplay moments like mining ores, fighting mobs, building, and exploring, then turns them into timeline markers for easier editing.",
+    status: "Concept / MVP Planning",
+    tags: ["Minecraft Modding", "Creator Tools", "Java", "Editing"],
+  },
+  {
+    id: "idea2",
+    title: "AI Attention Analyzer",
+    description:
+      "A video analysis tool that detects possible attention drops in long videos using motion, audio, pacing, visual quality, and future AI-based transcript analysis.",
+    status: "Prototype / V1",
+    tags: ["Python", "OpenCV", "Audio Analysis", "Creator Tech"],
+  },
+  {
+    id: "idea3",
+    title: "Gen Z Is Cooked",
+    description:
+      "A book concept exploring how online culture, trends, comparison, attention loss, and digital identity are shaping Gen Z in real time.",
+    status: "Writing Soon",
+    tags: ["Writing", "Gen Z", "Attention", "Culture"],
+  },
+  {
+    id: "idea4",
+    title: "Creator Intelligence System",
+    description:
+      "A broader idea around helping creators understand why parts of their content work or fail, using AI-generated insights instead of just raw analytics.",
+    status: "Researching",
+    tags: ["AI", "Content", "Data Science", "Product Thinking"],
   },
 ];

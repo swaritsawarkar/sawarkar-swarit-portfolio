@@ -12,16 +12,21 @@ export function Badge({
   className,
 }: BadgeProps) {
   const variants = {
-    default: "bg-primary/15 text-primary border-primary/30 border",
-    accent: "bg-accent/20 text-accent border-accent/40 border",
-    muted: "bg-muted/80 text-muted-foreground border-border border",
-    outline: "bg-transparent text-foreground border-border border",
+    // #1a1a1a bg, #444 border, #aaa text
+    default: "bg-[#1a1a1a] text-[#aaaaaa] border border-[#444444]",
+    // #222 bg, #555 border, white text — slightly brighter
+    accent: "bg-[#222222] text-white border border-[#555555]",
+    // very dark bg, muted grey text
+    muted: "bg-[#141414] text-[#666666] border border-[#333333]",
+    // transparent, visible border
+    outline: "bg-transparent text-[#cccccc] border border-[#444444]",
   };
 
   return (
     <span
       className={cn(
-        "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-mono font-medium tracking-wide",
+        "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium tracking-wide",
+        "font-[Inter,sans-serif]",
         variants[variant],
         className,
       )}

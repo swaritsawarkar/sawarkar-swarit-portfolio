@@ -39,3 +39,11 @@ export interface ContactLink {
   href: string;
   icon: string;
 }
+
+export interface IdeaLabItem {
+  id: string;
+  title: string;
+  description: string;
+  status: string;
+  tags: string[];
+}

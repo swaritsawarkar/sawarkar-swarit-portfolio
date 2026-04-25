@@ -4,17 +4,17 @@ import { Card } from "../components/Card";
 import { SectionHeader } from "../components/SectionHeader";
 import { achievements } from "../data";
 
-const easeSpring = { type: "spring", stiffness: 220, damping: 22 } as const;
+const easeOut: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 export function Achievements() {
   return (
     <section id="achievements" className="py-24 bg-transparent">
       <div className="max-w-6xl mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 50, scale: 0.95 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.7, ease: easeOut }}
         >
           <SectionHeader
             label="Achievements"
@@ -23,58 +23,61 @@ export function Achievements() {
           />
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <motion.div
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.05 }}
+          variants={{
+            visible: {
+              transition: { staggerChildren: 0.08, delayChildren: 0.1 },
+            },
+            hidden: {},
+          }}
+        >
           {achievements.map((a, i) => (
             <motion.div
               key={a.id}
-              initial={{
-                opacity: 0,
-                y: 50,
-                x: i % 3 === 0 ? -30 : i % 3 === 2 ? 30 : 0,
-                scale: 0.9,
+              variants={{
+                hidden: {
+                  opacity: 0,
+                  y: 40,
+                  x: i % 3 === 0 ? -20 : i % 3 === 2 ? 20 : 0,
+                },
+                visible: { opacity: 1, y: 0, x: 0 },
               }}
-              whileInView={{ opacity: 1, y: 0, x: 0, scale: 1 }}
-              viewport={{ once: true, amount: 0.1 }}
-              transition={{ ...easeSpring, delay: i * 0.08 }}
-              whileHover={{ scale: 1.02, y: -4 }}
+              transition={{ duration: 0.6, ease: easeOut }}
+              whileHover={{ y: -3, transition: { duration: 0.2 } }}
             >
-              <Card
-                glow={a.highlight}
-                className={a.highlight ? "border-primary/40" : ""}
-                data-ocid={`achievement-${a.id}`}
-              >
+              <Card glow={a.highlight} data-ocid={`achievement.item.${i + 1}`}>
                 <div className="flex items-start gap-4">
-                  <motion.span
-                    className="text-3xl shrink-0"
-                    initial={{ rotate: -20, scale: 0.5 }}
-                    whileInView={{ rotate: 0, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ ...easeSpring, delay: i * 0.08 + 0.15 }}
-                  >
+                  <div className="shrink-0 w-11 h-11 rounded-lg bg-[#1a1a1a] border border-[#333] flex items-center justify-center text-xl">
                     {a.icon}
-                  </motion.span>
-                  <div className="min-w-0">
-                    <div className="flex items-center gap-2 flex-wrap">
-                      <h3 className="font-display font-bold text-lg text-foreground leading-tight">
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-start gap-2 flex-wrap">
+                      <h3 className="font-display font-semibold text-base text-white leading-snug">
                         {a.title}
                       </h3>
-                      {a.highlight && <Badge variant="accent">Featured</Badge>}
+                      {a.highlight && <Badge variant="outline">Featured</Badge>}
                     </div>
-                    <p className="text-sm font-medium text-primary mt-1">
+                    <p className="text-xs font-medium text-[#888] mt-1 tracking-wide">
                       {a.subtitle}
                     </p>
-                    <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
+                    <p className="text-sm text-[#666] mt-2 leading-relaxed">
                       {a.description}
                     </p>
-                    <p className="text-xs text-muted-foreground/60 mt-3 font-mono">
-                      {a.year}
-                    </p>
+                    <div className="flex items-center justify-between mt-3 flex-wrap gap-2">
+                      <span className="text-xs font-mono text-[#555] bg-[#1a1a1a] border border-[#2a2a2a] px-2 py-0.5 rounded-full">
+                        {a.year}
+                      </span>
+                    </div>
                   </div>
                 </div>
               </Card>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

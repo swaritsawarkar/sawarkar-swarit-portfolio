@@ -19,11 +19,12 @@ export function Card({
     <div
       data-ocid={dataOcid}
       className={cn(
-        // Solid #BDE3F0 border — fully visible on dark navy/purple backgrounds
-        "bg-card/70 backdrop-blur-sm rounded-xl p-6",
-        "border border-[#BDE3F0]",
+        // Near-black card with clearly visible grey border on black background
+        "rounded-xl p-6",
+        "bg-[#111111] border border-[#333333]",
         hover && "card-hover cursor-default",
-        glow && "glow-accent border-[#E0FFFE]",
+        // Monochrome glow — very subtle white highlight
+        glow && "shadow-[0_0_20px_rgba(255,255,255,0.06)] border-[#444444]",
         className,
       )}
     >

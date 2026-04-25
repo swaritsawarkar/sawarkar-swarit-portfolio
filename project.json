@@ -1,21 +1,21 @@
 {
-  "overview": "A modern personal portfolio website for Swarit Sawarkar — a 15-year-old robotics champion, coder, and content creator. Showcases achievements, projects, skills, and experience designed to impress college admissions teams.",
+  "overview": "A minimalistic, high-end personal portfolio website for Swarit Sawarkar, featuring a strict monochrome black/white/grey aesthetic with premium typography, signature-style hero name animations, and smooth scroll-triggered animations throughout.",
   "features": [
-    "Hero section with animated gradient and personal tagline",
-    "Achievements showcase with badges and icons",
-    "Projects section featuring Chess AI, MUNIFY, and book-in-progress",
-    "Skills breakdown across programming, media, and leadership",
-    "Chronological timeline of experiences and events",
-    "Contact section with all social links"
+    "Monochrome black/white/grey design with deep black background",
+    "Signature-style rolling reveal animation for the hero name",
+    "Global smooth scroll-triggered section animations",
+    "Timeline that unfolds like a story with animated progress line",
+    "Interactive monochrome orb/rod animated background",
+    "Premium Inter typography with strong visual hierarchy",
+    "Fully responsive layout with breathable spacing"
   ],
   "category": "portfolio",
   "tags": [
     "portfolio",
-    "personal",
-    "student",
-    "robotics",
-    "coding",
-    "showcase"
+    "minimalist",
+    "monochrome",
+    "animation",
+    "personal-brand"
   ],
-  "last_updated": "2026-04-10T02:23:50.226Z"
+  "last_updated": "2026-04-21T13:34:10.124Z"
 }

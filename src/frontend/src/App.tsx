@@ -7,6 +7,7 @@ import { SectionHeader } from "./components/SectionHeader";
 import { Achievements } from "./sections/Achievements";
 import { Contact } from "./sections/Contact";
 import { Hero } from "./sections/Hero";
+import { IdeaLab } from "./sections/IdeaLab";
 import { Projects } from "./sections/Projects";
 import { Skills } from "./sections/Skills";
 import { Timeline } from "./sections/Timeline";
@@ -45,7 +46,7 @@ export default function App() {
                   title="Built different, from day one."
                   subtitle="At 14, I left home and moved into a boarding school. Living independently forged resilience I didn't know I had, and it pushed me to chase every opportunity."
                 />
-                <div className="space-y-4 text-[#DFD9F7]/75 leading-relaxed">
+                <div className="space-y-4 text-[#aaa] leading-relaxed">
                   <p>
                     I'm Swarit, a 15-year-old from Dubai navigating 10th grade
                     while building robots, writing code, creating content, and
@@ -125,10 +126,10 @@ export default function App() {
                       >
                         {item.icon}
                       </motion.div>
-                      <div className="font-display font-bold text-xl text-[#DFD9F7]">
+                      <div className="font-display font-bold text-xl text-white">
                         {item.stat}
                       </div>
-                      <div className="text-xs text-[#BDE3F0]/80 mt-1">
+                      <div className="text-xs text-[#666] mt-1">
                         {item.label}
                       </div>
                     </Card>
@@ -141,6 +142,7 @@ export default function App() {
 
         <Achievements />
         <Projects />
+        <IdeaLab />
         <Timeline />
         <Skills />
         <Contact />
