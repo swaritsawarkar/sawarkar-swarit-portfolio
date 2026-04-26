@@ -6,6 +6,7 @@ import { Navigation } from "./components/Navigation";
 import { SectionHeader } from "./components/SectionHeader";
 import { Achievements } from "./sections/Achievements";
 import { Contact } from "./sections/Contact";
+import { Edits } from "./sections/Edits";
 import { Hero } from "./sections/Hero";
 import { IdeaLab } from "./sections/IdeaLab";
 import { Projects } from "./sections/Projects";
@@ -143,6 +144,7 @@ export default function App() {
         <Achievements />
         <Projects />
         <IdeaLab />
+        <Edits />
         <Timeline />
         <Skills />
         <Contact />

@@ -18512,7 +18512,7 @@ const circIn = (p) => 1 - Math.sin(Math.acos(p));
 const circOut = reverseEasing(circIn);
 const circInOut = mirrorEasing(circIn);
 const easeIn = /* @__PURE__ */ cubicBezier(0.42, 0, 1, 1);
-const easeOut$6 = /* @__PURE__ */ cubicBezier(0, 0, 0.58, 1);
+const easeOut$7 = /* @__PURE__ */ cubicBezier(0, 0, 0.58, 1);
 const easeInOut = /* @__PURE__ */ cubicBezier(0.42, 0, 0.58, 1);
 const isEasingArray = (ease2) => {
   return Array.isArray(ease2) && typeof ease2[0] !== "number";
@@ -18522,7 +18522,7 @@ const easingLookup = {
   linear: noop,
   easeIn,
   easeInOut,
-  easeOut: easeOut$6,
+  easeOut: easeOut$7,
   circIn,
   circInOut,
   circOut,
@@ -29147,11 +29147,23 @@ const createLucideIcon = (iconName, iconNode) => {
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$7 = [
+const __iconNode$8 = [
   ["path", { d: "M12 5v14", key: "s699le" }],
   ["path", { d: "m19 12-7 7-7-7", key: "1idqje" }]
 ];
-const ArrowDown = createLucideIcon("arrow-down", __iconNode$7);
+const ArrowDown = createLucideIcon("arrow-down", __iconNode$8);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$7 = [
+  ["path", { d: "M15 3h6v6", key: "1q9fwt" }],
+  ["path", { d: "M10 14 21 3", key: "gplh6r" }],
+  ["path", { d: "M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6", key: "a6xqqp" }]
+];
+const ExternalLink = createLucideIcon("external-link", __iconNode$7);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -29159,18 +29171,6 @@ const ArrowDown = createLucideIcon("arrow-down", __iconNode$7);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$6 = [
-  ["path", { d: "M15 3h6v6", key: "1q9fwt" }],
-  ["path", { d: "M10 14 21 3", key: "gplh6r" }],
-  ["path", { d: "M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6", key: "a6xqqp" }]
-];
-const ExternalLink = createLucideIcon("external-link", __iconNode$6);
-/**
- * @license lucide-react v0.511.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$5 = [
   [
     "path",
     {
@@ -29180,7 +29180,19 @@ const __iconNode$5 = [
   ],
   ["path", { d: "M9 18c-4.51 2-5-2-7-2", key: "9comsn" }]
 ];
-const Github = createLucideIcon("github", __iconNode$5);
+const Github = createLucideIcon("github", __iconNode$6);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$5 = [
+  ["rect", { width: "20", height: "20", x: "2", y: "2", rx: "5", ry: "5", key: "2e1cvw" }],
+  ["path", { d: "M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z", key: "9exkf1" }],
+  ["line", { x1: "17.5", x2: "17.51", y1: "6.5", y2: "6.5", key: "r4j83e" }]
+];
+const Instagram = createLucideIcon("instagram", __iconNode$5);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -29188,11 +29200,10 @@ const Github = createLucideIcon("github", __iconNode$5);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$4 = [
-  ["rect", { width: "20", height: "20", x: "2", y: "2", rx: "5", ry: "5", key: "2e1cvw" }],
-  ["path", { d: "M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z", key: "9exkf1" }],
-  ["line", { x1: "17.5", x2: "17.51", y1: "6.5", y2: "6.5", key: "r4j83e" }]
+  ["path", { d: "m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7", key: "132q7q" }],
+  ["rect", { x: "2", y: "4", width: "20", height: "16", rx: "2", key: "izxlao" }]
 ];
-const Instagram = createLucideIcon("instagram", __iconNode$4);
+const Mail = createLucideIcon("mail", __iconNode$4);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -29200,10 +29211,11 @@ const Instagram = createLucideIcon("instagram", __iconNode$4);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$3 = [
-  ["path", { d: "m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7", key: "132q7q" }],
-  ["rect", { x: "2", y: "4", width: "20", height: "16", rx: "2", key: "izxlao" }]
+  ["path", { d: "M4 12h16", key: "1lakjw" }],
+  ["path", { d: "M4 18h16", key: "19g7jn" }],
+  ["path", { d: "M4 6h16", key: "1o0s65" }]
 ];
-const Mail = createLucideIcon("mail", __iconNode$3);
+const Menu = createLucideIcon("menu", __iconNode$3);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -29211,18 +29223,6 @@ const Mail = createLucideIcon("mail", __iconNode$3);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$2 = [
-  ["path", { d: "M4 12h16", key: "1lakjw" }],
-  ["path", { d: "M4 18h16", key: "19g7jn" }],
-  ["path", { d: "M4 6h16", key: "1o0s65" }]
-];
-const Menu = createLucideIcon("menu", __iconNode$2);
-/**
- * @license lucide-react v0.511.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$1 = [
   [
     "path",
     {
@@ -29231,7 +29231,15 @@ const __iconNode$1 = [
     }
   ]
 ];
-const Phone = createLucideIcon("phone", __iconNode$1);
+const Phone = createLucideIcon("phone", __iconNode$2);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$1 = [["polygon", { points: "6 3 20 12 6 21 6 3", key: "1oa8hb" }]];
+const Play = createLucideIcon("play", __iconNode$1);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -29247,6 +29255,7 @@ const navLinks = [
   { label: "About", href: "#about" },
   { label: "Achievements", href: "#achievements" },
   { label: "Projects", href: "#projects" },
+  { label: "Edits", href: "#edits" },
   { label: "Timeline", href: "#timeline" },
   { label: "Skills", href: "#skills" },
   { label: "Contact", href: "#contact" }
@@ -29468,6 +29477,14 @@ const achievements = [
 ];
 const projects = [
   {
+    id: "ai-attention-analyzer",
+    title: "AI Attention Analyzer",
+    description: "A video analysis tool that detects attention drops in long-form content using motion, audio, pacing, and visual quality analysis. V1 is live — actively being iterated.",
+    tags: ["Python", "OpenCV", "Audio Analysis", "Creator Tech"],
+    githubUrl: "https://github.com/swaritsawarkar/attentiondropdetector",
+    status: "in-progress"
+  },
+  {
     id: "chess-tracker",
     title: "Chess Tracker AI",
     description: "A computer vision powered chess move tracker that detects moves from a physical chessboard and integrates with the Stockfish engine for AI analysis and gameplay.",
@@ -29656,13 +29673,6 @@ const ideaLabItems = [
     tags: ["Minecraft Modding", "Creator Tools", "Java", "Editing"]
   },
   {
-    id: "idea2",
-    title: "AI Attention Analyzer",
-    description: "A video analysis tool that detects possible attention drops in long videos using motion, audio, pacing, visual quality, and future AI-based transcript analysis.",
-    status: "Prototype / V1",
-    tags: ["Python", "OpenCV", "Audio Analysis", "Creator Tech"]
-  },
-  {
     id: "idea3",
     title: "Gen Z Is Cooked",
     description: "A book concept exploring how online culture, trends, comparison, attention loss, and digital identity are shaping Gen Z in real time.",
@@ -29677,7 +29687,7 @@ const ideaLabItems = [
     tags: ["AI", "Content", "Data Science", "Product Thinking"]
   }
 ];
-const easeOut$5 = [0.16, 1, 0.3, 1];
+const easeOut$6 = [0.16, 1, 0.3, 1];
 function Achievements() {
   return /* @__PURE__ */ jsxRuntimeExports.jsx("section", { id: "achievements", className: "py-24 bg-transparent", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-6xl mx-auto px-6", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -29686,7 +29696,7 @@ function Achievements() {
         initial: { opacity: 0, y: 30 },
         whileInView: { opacity: 1, y: 0 },
         viewport: { once: true, amount: 0.2 },
-        transition: { duration: 0.7, ease: easeOut$5 },
+        transition: { duration: 0.7, ease: easeOut$6 },
         children: /* @__PURE__ */ jsxRuntimeExports.jsx(
           SectionHeader,
           {
@@ -29721,7 +29731,7 @@ function Achievements() {
               },
               visible: { opacity: 1, y: 0, x: 0 }
             },
-            transition: { duration: 0.6, ease: easeOut$5 },
+            transition: { duration: 0.6, ease: easeOut$6 },
             whileHover: { y: -3, transition: { duration: 0.2 } },
             children: /* @__PURE__ */ jsxRuntimeExports.jsx(Card, { glow: a.highlight, "data-ocid": `achievement.item.${i + 1}`, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-start gap-4", children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "shrink-0 w-11 h-11 rounded-lg bg-[#1a1a1a] border border-[#333] flex items-center justify-center text-xl", children: a.icon }),
@@ -29742,7 +29752,7 @@ function Achievements() {
     )
   ] }) });
 }
-const easeOut$4 = [0.16, 1, 0.3, 1];
+const easeOut$5 = [0.16, 1, 0.3, 1];
 const iconMap = {
   github: /* @__PURE__ */ jsxRuntimeExports.jsx(Github, { size: 18 }),
   instagram: /* @__PURE__ */ jsxRuntimeExports.jsx(Instagram, { size: 18 }),
@@ -29757,7 +29767,7 @@ function Contact() {
         initial: { opacity: 0, y: 30 },
         whileInView: { opacity: 1, y: 0 },
         viewport: { once: true, amount: 0.2 },
-        transition: { duration: 0.7, ease: easeOut$4 },
+        transition: { duration: 0.7, ease: easeOut$5 },
         children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(
             SectionHeader,
@@ -29798,7 +29808,7 @@ function Contact() {
                 hidden: { opacity: 0, y: 20 },
                 visible: { opacity: 1, y: 0 }
               },
-              transition: { duration: 0.5, ease: easeOut$4 },
+              transition: { duration: 0.5, ease: easeOut$5 },
               children: [
                 /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-[#555]", children: iconMap[link.icon] }),
                 /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: link.label })
@@ -29814,7 +29824,7 @@ function Contact() {
                 hidden: { opacity: 0, y: 20 },
                 visible: { opacity: 1, y: 0 }
               },
-              transition: { duration: 0.5, ease: easeOut$4 },
+              transition: { duration: 0.5, ease: easeOut$5 },
               children: [
                 /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-[#555]", children: iconMap[link.icon] }),
                 /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: link.label })
@@ -29832,12 +29842,122 @@ function Contact() {
         initial: { opacity: 0, y: 20 },
         whileInView: { opacity: 1, y: 0 },
         viewport: { once: true },
-        transition: { duration: 0.7, delay: 0.3, ease: easeOut$4 },
+        transition: { duration: 0.7, delay: 0.3, ease: easeOut$5 },
         children: /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { children: [
           "© ",
           (/* @__PURE__ */ new Date()).getFullYear(),
           " Swarit Sawarkar."
         ] })
+      }
+    )
+  ] }) });
+}
+const easeOut$4 = [0.16, 1, 0.3, 1];
+const reels = [
+  {
+    id: "reel1",
+    label: "Football Edit #1",
+    type: "Velocity Edit",
+    description: "High-pace football velocity edit built in After Effects. Motion-synced cuts, smooth transitions.",
+    href: "https://www.instagram.com/reel/DXkDrNpjaz5/"
+  },
+  {
+    id: "reel2",
+    label: "Football Edit #2",
+    type: "Velocity Edit",
+    description: "Another football velocity reel with tight pacing and crisp After Effects compositing.",
+    href: "https://www.instagram.com/reel/DXlQiA1jXeR/"
+  }
+];
+function ReelCard({ reel, index: index2 }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+    motion.a,
+    {
+      href: reel.href,
+      target: "_blank",
+      rel: "noopener noreferrer",
+      initial: { opacity: 0, y: 28 },
+      whileInView: { opacity: 1, y: 0 },
+      viewport: { once: true, amount: 0.15 },
+      transition: { duration: 0.65, delay: index2 * 0.12, ease: easeOut$4 },
+      whileHover: { y: -4, transition: { duration: 0.22, ease: "easeOut" } },
+      className: "group relative flex flex-col gap-5 rounded-2xl border border-[#2a2a2a] bg-[#0d0d0d] p-7 transition-all duration-300 hover:border-[#484848] hover:shadow-[0_0_28px_rgba(255,255,255,0.05)] cursor-pointer",
+      "data-ocid": `edits.item.${index2 + 1}`,
+      children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "pointer-events-none absolute inset-x-0 top-0 h-px rounded-t-2xl bg-gradient-to-r from-transparent via-white/12 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between gap-3", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#333] bg-[#111] transition-all duration-300 group-hover:border-[#555] group-hover:bg-[#1a1a1a]", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+              Play,
+              {
+                size: 14,
+                className: "text-[#aaa] ml-0.5 group-hover:text-white transition-colors duration-200",
+                fill: "currentColor"
+              }
+            ) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-display font-semibold text-white text-sm leading-tight tracking-tight", children: reel.label }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-[10px] text-[#555] tracking-widest uppercase mt-0.5", children: reel.type })
+            ] })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "flex items-center gap-1.5 shrink-0 text-[#555] transition-colors duration-200 group-hover:text-[#aaa]", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Instagram, { size: 13 }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(ExternalLink, { size: 11 })
+          ] })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-[#666] text-sm leading-relaxed", children: reel.description }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "rounded-md border border-[#2a2a2a] bg-[#111] px-2.5 py-0.5 text-[11px] text-[#555] tracking-wide", children: "After Effects" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "rounded-md border border-[#2a2a2a] bg-[#111] px-2.5 py-0.5 text-[11px] text-[#555] tracking-wide", children: "Football" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "rounded-md border border-[#2a2a2a] bg-[#111] px-2.5 py-0.5 text-[11px] text-[#555] tracking-wide", children: "Motion" })
+        ] })
+      ]
+    }
+  );
+}
+function Edits() {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("section", { id: "edits", className: "py-24 bg-transparent", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-6xl mx-auto px-6", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
+      motion.div,
+      {
+        initial: { opacity: 0, y: 30 },
+        whileInView: { opacity: 1, y: 0 },
+        viewport: { once: true, amount: 0.2 },
+        transition: { duration: 0.7, ease: easeOut$4 },
+        children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+          SectionHeader,
+          {
+            label: "Edits",
+            title: "Football velocity edits. Built in After Effects.",
+            subtitle: "Motion-synced cuts, tight pacing, shot on the pitch. More coming."
+          }
+        )
+      }
+    ),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-5 mt-12", children: reels.map((reel, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(ReelCard, { reel, index: i }, reel.id)) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
+      motion.div,
+      {
+        className: "mt-10 flex justify-center",
+        initial: { opacity: 0, y: 20 },
+        whileInView: { opacity: 1, y: 0 },
+        viewport: { once: true, amount: 0.5 },
+        transition: { duration: 0.6, delay: 0.3, ease: easeOut$4 },
+        children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          "a",
+          {
+            href: "https://www.instagram.com/swaritlol",
+            target: "_blank",
+            rel: "noopener noreferrer",
+            className: "inline-flex items-center gap-2.5 text-sm text-[#777] hover:text-white border border-[#333] hover:border-[#555] px-5 py-2.5 rounded-xl transition-all duration-200 hover:bg-white/[0.03]",
+            "data-ocid": "edits.view-all-link",
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(Instagram, { size: 14 }),
+              "View all edits on Instagram",
+              /* @__PURE__ */ jsxRuntimeExports.jsx(ExternalLink, { size: 11 })
+            ]
+          }
+        )
       }
     )
   ] }) });
@@ -30685,6 +30805,7 @@ function App() {
       /* @__PURE__ */ jsxRuntimeExports.jsx(Achievements, {}),
       /* @__PURE__ */ jsxRuntimeExports.jsx(Projects, {}),
       /* @__PURE__ */ jsxRuntimeExports.jsx(IdeaLab, {}),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Edits, {}),
       /* @__PURE__ */ jsxRuntimeExports.jsx(Timeline, {}),
       /* @__PURE__ */ jsxRuntimeExports.jsx(Skills, {}),
       /* @__PURE__ */ jsxRuntimeExports.jsx(Contact, {})

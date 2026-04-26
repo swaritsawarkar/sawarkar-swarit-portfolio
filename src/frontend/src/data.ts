@@ -69,6 +69,15 @@ export const achievements: Achievement[] = [
 
 export const projects: Project[] = [
   {
+    id: "ai-attention-analyzer",
+    title: "AI Attention Analyzer",
+    description:
+      "A video analysis tool that detects attention drops in long-form content using motion, audio, pacing, and visual quality analysis. V1 is live — actively being iterated.",
+    tags: ["Python", "OpenCV", "Audio Analysis", "Creator Tech"],
+    githubUrl: "https://github.com/swaritsawarkar/attentiondropdetector",
+    status: "in-progress",
+  },
+  {
     id: "chess-tracker",
     title: "Chess Tracker AI",
     description:
@@ -276,14 +285,6 @@ export const ideaLabItems: IdeaLabItem[] = [
       "An AI-assisted Minecraft creator tool that logs important gameplay moments like mining ores, fighting mobs, building, and exploring, then turns them into timeline markers for easier editing.",
     status: "Concept / MVP Planning",
     tags: ["Minecraft Modding", "Creator Tools", "Java", "Editing"],
-  },
-  {
-    id: "idea2",
-    title: "AI Attention Analyzer",
-    description:
-      "A video analysis tool that detects possible attention drops in long videos using motion, audio, pacing, visual quality, and future AI-based transcript analysis.",
-    status: "Prototype / V1",
-    tags: ["Python", "OpenCV", "Audio Analysis", "Creator Tech"],
   },
   {
     id: "idea3",
