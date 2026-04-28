@@ -30720,7 +30720,7 @@ function App() {
                     {
                       label: "About Me",
                       title: "Built different, from day one.",
-                      subtitle: "At 14, I left home and moved into a boarding school. Living independently forged resilience I didn't know I had, and it pushed me to chase every opportunity."
+                      subtitle: "In 8th grade, I moved into a boarding school. Living independently from early on forged resilience I didn't know I had, and pushed me to chase every opportunity."
                     }
                   ),
                   /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-4 text-[#aaa] leading-relaxed", children: [
