@@ -29147,11 +29147,27 @@ const createLucideIcon = (iconName, iconNode) => {
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$8 = [
+const __iconNode$a = [
   ["path", { d: "M12 5v14", key: "s699le" }],
   ["path", { d: "m19 12-7 7-7-7", key: "1idqje" }]
 ];
-const ArrowDown = createLucideIcon("arrow-down", __iconNode$8);
+const ArrowDown = createLucideIcon("arrow-down", __iconNode$a);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$9 = [["path", { d: "m6 9 6 6 6-6", key: "qrunsl" }]];
+const ChevronDown = createLucideIcon("chevron-down", __iconNode$9);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$8 = [["path", { d: "m18 15-6-6-6 6", key: "153udz" }]];
+const ChevronUp = createLucideIcon("chevron-up", __iconNode$8);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -29479,10 +29495,40 @@ const projects = [
   {
     id: "ai-attention-analyzer",
     title: "AI Attention Analyzer",
-    description: "A video analysis tool that detects attention drops in long-form content using motion, audio, pacing, and visual quality analysis. V1 is live — actively being iterated.",
+    description: "A video analysis tool that detects attention drops in long-form content using motion, audio, pacing, and visual quality analysis. V1 is live and actively being iterated.",
     tags: ["Python", "OpenCV", "Audio Analysis", "Creator Tech"],
     githubUrl: "https://github.com/swaritsawarkar/attentiondropdetector",
     status: "in-progress"
+  },
+  {
+    id: "shorts-channel-os",
+    title: "Shorts Channel OS",
+    description: "A local-first automation dashboard for generating, managing, tracking, and uploading YouTube Shorts. Built with Python, Streamlit, SQLite, FFmpeg, YouTube Data API, OAuth, analytics syncing, and a background autopilot system.",
+    tags: [
+      "Python",
+      "Streamlit",
+      "SQLite",
+      "FFmpeg",
+      "YouTube API",
+      "OAuth",
+      "Automation",
+      "Analytics",
+      "Background Workers",
+      "AI Tools"
+    ],
+    status: "in-progress",
+    channelId: "@Reddit.rush.stories1",
+    features: [
+      "Streamlit dashboard for video generation and upload control",
+      "YouTube Data API upload flow with OAuth",
+      "SQLite database for generated videos, metadata, and settings",
+      "Autopilot mode that runs in the background",
+      "Live progress tracking for generation, rendering, uploading, success, and errors",
+      "Analytics sync for views, likes, comments, and performance insights",
+      "Local-first design with no paid cloud hosting required",
+      "Built for creator automation and short-form content workflows",
+      "Fully automated end-to-end: no manual intervention required"
+    ]
   },
   {
     id: "chess-tracker",
@@ -29506,48 +29552,66 @@ const projects = [
     description: "A 15-year-old's take on attention, trends, comparison, and the quiet ways the internet is changing how we think, feel, and see ourselves. Currently writing.",
     tags: ["Writing", "Gen Z", "Social Commentary", "Self-Reflection"],
     status: "in-progress"
-  },
-  {
-    id: "steering-wheel",
-    title: "DIY Cardboard Gaming Wheel",
-    description: "Built a working gaming steering wheel out of cardboard and a phone in 7th grade by combining phone gyroscope inputs with custom PC integration.",
-    tags: ["Hardware Hack", "DIY", "Python", "Creative Engineering"],
-    status: "completed"
   }
 ];
 const skillGroups = [
   {
     category: "Programming",
-    skills: ["Python", "C++", "C", "Arduino", "HTML/CSS"]
+    skills: [
+      "Python",
+      "JavaScript / React basics",
+      "HTML / CSS",
+      "C++",
+      "C",
+      "Arduino"
+    ]
   },
   {
-    category: "Tech & AI",
+    category: "AI, Automation & Creator Tech",
     skills: [
-      "Computer Vision",
-      "Data Science",
-      "AI / ML",
-      "Stockfish Engine",
-      "Robotics"
+      "AI workflow building",
+      "Prompt engineering",
+      "Codex",
+      "Antigravity",
+      "Caffeine.ai",
+      "Google GenAI",
+      "YouTube Data API",
+      "OAuth",
+      "Creator automation",
+      "Analytics dashboards"
+    ]
+  },
+  {
+    category: "Backend / Tools",
+    skills: [
+      "SQLite",
+      "Streamlit",
+      "FFmpeg",
+      "PyInstaller",
+      "Background workers",
+      "Local app packaging",
+      "API integration"
     ]
   },
   {
     category: "Creative",
     skills: [
-      "Video Editing",
-      "Adobe Premiere Pro",
-      "After Effects",
-      "Illustrator",
-      "Web Design"
+      "Video editing",
+      "Short-form content systems",
+      "Content strategy",
+      "Creator tools",
+      "Web design"
     ]
   },
   {
     category: "Soft Skills",
     skills: [
-      "Public Speaking",
-      "Social Media Management",
-      "Content Creation",
+      "Public speaking",
+      "Content creation",
       "Leadership",
-      "Writing"
+      "Product thinking",
+      "Writing",
+      "Social media management"
     ]
   }
 ];
@@ -29685,6 +29749,13 @@ const ideaLabItems = [
     description: "A broader idea around helping creators understand why parts of their content work or fail, using AI-generated insights instead of just raw analytics.",
     status: "Researching",
     tags: ["AI", "Content", "Data Science", "Product Thinking"]
+  },
+  {
+    id: "creator-automation-lab",
+    title: "Creator Automation Lab",
+    description: "A collection of experiments around automating content workflows: generating videos, tracking uploads, analyzing performance, and building dashboards that help creators move faster.",
+    status: "Exploring",
+    tags: ["Python", "Automation", "Creator Tech", "Dashboards", "Workflows"]
   }
 ];
 const easeOut$6 = [0.16, 1, 0.3, 1];
@@ -30053,7 +30124,7 @@ function Hero() {
                 ease: REVEAL_EASE
               },
               children: [
-                "Roboticist. Builder. Speaker. Writer.",
+                "Roboticist. Builder. Creator-tech experimenter. Writer.",
                 /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
                 /* @__PURE__ */ jsxRuntimeExports.jsx("span", { style: { color: "#666" }, children: "15 years old and already making things that matter." })
               ]
@@ -30246,6 +30317,145 @@ function IdeaLab() {
   ] }) });
 }
 const easeOut$2 = [0.16, 1, 0.3, 1];
+function ProjectCard({ p, i }) {
+  const [showFeatures, setShowFeatures] = reactExports.useState(false);
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    motion.div,
+    {
+      variants: {
+        hidden: { opacity: 0, x: i % 2 === 0 ? -30 : 30, y: 20 },
+        visible: { opacity: 1, x: 0, y: 0 }
+      },
+      transition: { duration: 0.65, ease: easeOut$2 },
+      whileHover: { y: -3, transition: { duration: 0.2 } },
+      "data-ocid": `project.item.${i + 1}`,
+      children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "project-card flex flex-col gap-4 h-full rounded-xl p-6", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-start justify-between gap-3", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-display font-semibold text-lg text-white leading-tight", children: p.title }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "span",
+            {
+              className: `shrink-0 text-xs font-mono px-2.5 py-1 rounded-full border ${p.status === "in-progress" ? "text-[#aaa] border-[#444] bg-[#1a1a1a]" : "text-[#888] border-[#333] bg-[#1a1a1a]"}`,
+              children: p.status === "in-progress" ? "In Progress" : "Completed"
+            }
+          )
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-[#777] leading-relaxed flex-1", children: p.description }),
+        p.features && p.features.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "button",
+            {
+              type: "button",
+              onClick: () => setShowFeatures((v) => !v),
+              className: "inline-flex items-center gap-1.5 text-xs text-[#666] hover:text-[#aaa] transition-colors duration-200 mb-2",
+              "data-ocid": `project.item.${i + 1}-features-toggle`,
+              children: showFeatures ? /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronUp, { size: 12 }),
+                "Hide features"
+              ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronDown, { size: 12 }),
+                "View features"
+              ] })
+            }
+          ),
+          showFeatures && /* @__PURE__ */ jsxRuntimeExports.jsx(
+            motion.ul,
+            {
+              className: "space-y-1.5 border-l border-[#2a2a2a] pl-3",
+              initial: { opacity: 0, height: 0 },
+              animate: { opacity: 1, height: "auto" },
+              exit: { opacity: 0, height: 0 },
+              transition: { duration: 0.25, ease: easeOut$2 },
+              children: p.features.map((f) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "li",
+                {
+                  className: "text-xs text-[#666] leading-relaxed before:content-['·'] before:mr-2 before:text-[#444]",
+                  children: f
+                },
+                f
+              ))
+            }
+          )
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          motion.div,
+          {
+            className: "flex flex-wrap gap-2",
+            initial: "hidden",
+            whileInView: "visible",
+            viewport: { once: true },
+            variants: {
+              visible: {
+                transition: {
+                  staggerChildren: 0.05,
+                  delayChildren: i * 0.08 + 0.2
+                }
+              },
+              hidden: {}
+            },
+            children: p.tags.map((tag) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+              motion.div,
+              {
+                variants: {
+                  hidden: { opacity: 0, scale: 0.8 },
+                  visible: { opacity: 1, scale: 1 }
+                },
+                transition: { duration: 0.3, ease: easeOut$2 },
+                children: /* @__PURE__ */ jsxRuntimeExports.jsx(Badge, { variant: "muted", children: tag })
+              },
+              tag
+            ))
+          }
+        ),
+        p.channelId && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2 flex-wrap", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs text-[#555] font-mono tracking-wide", children: "Channel" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "a",
+            {
+              href: `https://www.youtube.com/${p.channelId}`,
+              target: "_blank",
+              rel: "noopener noreferrer",
+              className: "font-mono text-xs px-2 py-0.5 rounded border border-[#2a2a2a] bg-[#111] text-[#666] hover:text-[#aaa] hover:border-[#444] tracking-tight transition-colors duration-200",
+              "data-ocid": `project.item.${i + 1}-channel-id`,
+              children: p.channelId
+            }
+          )
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-4 flex-wrap mt-1", children: [
+          p.githubUrl && /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            "a",
+            {
+              href: p.githubUrl,
+              target: "_blank",
+              rel: "noopener noreferrer",
+              className: "inline-flex items-center gap-2 text-sm text-[#777] hover:text-white transition-colors duration-200",
+              "data-ocid": `project.item.${i + 1}-github`,
+              children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(Github, { size: 14 }),
+                "View on GitHub",
+                /* @__PURE__ */ jsxRuntimeExports.jsx(ExternalLink, { size: 11 })
+              ]
+            }
+          ),
+          p.websiteUrl && /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            "a",
+            {
+              href: p.websiteUrl,
+              target: "_blank",
+              rel: "noopener noreferrer",
+              className: "inline-flex items-center gap-1.5 text-sm text-[#777] hover:text-white border border-[#333] hover:border-[#555] px-3 py-1.5 rounded-lg transition-all duration-200",
+              "data-ocid": `project.item.${i + 1}-website`,
+              children: [
+                "Visit Website",
+                /* @__PURE__ */ jsxRuntimeExports.jsx(ExternalLink, { size: 11 })
+              ]
+            }
+          )
+        ] })
+      ] })
+    }
+  );
+}
 function Projects() {
   return /* @__PURE__ */ jsxRuntimeExports.jsx("section", { id: "projects", className: "py-24 bg-transparent", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-6xl mx-auto px-6", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -30278,93 +30488,7 @@ function Projects() {
           },
           hidden: {}
         },
-        children: projects.map((p, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(
-          motion.div,
-          {
-            variants: {
-              hidden: { opacity: 0, x: i % 2 === 0 ? -30 : 30, y: 20 },
-              visible: { opacity: 1, x: 0, y: 0 }
-            },
-            transition: { duration: 0.65, ease: easeOut$2 },
-            whileHover: { y: -3, transition: { duration: 0.2 } },
-            "data-ocid": `project.item.${i + 1}`,
-            children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "project-card flex flex-col gap-4 h-full rounded-xl p-6", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-start justify-between gap-3", children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-display font-semibold text-lg text-white leading-tight", children: p.title }),
-                /* @__PURE__ */ jsxRuntimeExports.jsx(
-                  "span",
-                  {
-                    className: `shrink-0 text-xs font-mono px-2.5 py-1 rounded-full border ${p.status === "in-progress" ? "text-[#aaa] border-[#444] bg-[#1a1a1a]" : "text-[#888] border-[#333] bg-[#1a1a1a]"}`,
-                    children: p.status === "in-progress" ? "In Progress" : "Completed"
-                  }
-                )
-              ] }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-[#777] leading-relaxed flex-1", children: p.description }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(
-                motion.div,
-                {
-                  className: "flex flex-wrap gap-2",
-                  initial: "hidden",
-                  whileInView: "visible",
-                  viewport: { once: true },
-                  variants: {
-                    visible: {
-                      transition: {
-                        staggerChildren: 0.05,
-                        delayChildren: i * 0.08 + 0.2
-                      }
-                    },
-                    hidden: {}
-                  },
-                  children: p.tags.map((tag) => /* @__PURE__ */ jsxRuntimeExports.jsx(
-                    motion.div,
-                    {
-                      variants: {
-                        hidden: { opacity: 0, scale: 0.8 },
-                        visible: { opacity: 1, scale: 1 }
-                      },
-                      transition: { duration: 0.3, ease: easeOut$2 },
-                      children: /* @__PURE__ */ jsxRuntimeExports.jsx(Badge, { variant: "muted", children: tag })
-                    },
-                    tag
-                  ))
-                }
-              ),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-4 flex-wrap mt-1", children: [
-                p.githubUrl && /* @__PURE__ */ jsxRuntimeExports.jsxs(
-                  "a",
-                  {
-                    href: p.githubUrl,
-                    target: "_blank",
-                    rel: "noopener noreferrer",
-                    className: "inline-flex items-center gap-2 text-sm text-[#777] hover:text-white transition-colors duration-200",
-                    "data-ocid": `project.item.${i + 1}-github`,
-                    children: [
-                      /* @__PURE__ */ jsxRuntimeExports.jsx(Github, { size: 14 }),
-                      "View on GitHub",
-                      /* @__PURE__ */ jsxRuntimeExports.jsx(ExternalLink, { size: 11 })
-                    ]
-                  }
-                ),
-                p.websiteUrl && /* @__PURE__ */ jsxRuntimeExports.jsxs(
-                  "a",
-                  {
-                    href: p.websiteUrl,
-                    target: "_blank",
-                    rel: "noopener noreferrer",
-                    className: "inline-flex items-center gap-1.5 text-sm text-[#777] hover:text-white border border-[#333] hover:border-[#555] px-3 py-1.5 rounded-lg transition-all duration-200",
-                    "data-ocid": `project.item.${i + 1}-website`,
-                    children: [
-                      "Visit Website",
-                      /* @__PURE__ */ jsxRuntimeExports.jsx(ExternalLink, { size: 11 })
-                    ]
-                  }
-                )
-              ] })
-            ] })
-          },
-          p.id
-        ))
+        children: projects.map((p, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(ProjectCard, { p, i }, p.id))
       }
     )
   ] }) });
@@ -30392,7 +30516,7 @@ function Skills() {
     /* @__PURE__ */ jsxRuntimeExports.jsx(
       motion.div,
       {
-        className: "grid sm:grid-cols-2 lg:grid-cols-4 gap-5",
+        className: "grid sm:grid-cols-2 lg:grid-cols-3 gap-5",
         initial: "hidden",
         whileInView: "visible",
         viewport: { once: true, amount: 0.05 },
@@ -30726,7 +30850,8 @@ function App() {
                   /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-4 text-[#aaa] leading-relaxed", children: [
                     /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "I'm Swarit, a 15-year-old from Dubai navigating 10th grade while building robots, writing code, creating content, and writing a book on the side. Boards are in a year, and I'm not slowing down." }),
                     /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "I've competed nationally in robotics, spelling, debating, and football. I run social media for robotics leagues, served as CMO at MUNIFY, and travelled to Singapore for AI workshops when most kids my age were figuring out fractions." }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "The common thread? I build things. I speak up. And I don't wait for permission." })
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "The common thread? I build things. I speak up. And I don't wait for permission." }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Recently, I have been building local automation tools for short-form video workflows, combining Python, dashboards, FFmpeg, YouTube APIs, and AI-assisted development tools like Codex, Antigravity, and Caffeine.ai." })
                   ] }),
                   /* @__PURE__ */ jsxRuntimeExports.jsx(
                     motion.div,

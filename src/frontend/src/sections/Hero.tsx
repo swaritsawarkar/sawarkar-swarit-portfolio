@@ -90,7 +90,7 @@ export function Hero() {
             ease: REVEAL_EASE,
           }}
         >
-          Roboticist. Builder. Speaker. Writer.
+          Roboticist. Builder. Creator-tech experimenter. Writer.
           <br />
           <span style={{ color: "#666" }}>
             15 years old and already making things that matter.

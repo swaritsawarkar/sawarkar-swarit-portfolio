@@ -17,6 +17,8 @@ export interface Project {
   websiteUrl?: string;
   image?: string;
   status: "live" | "in-progress" | "completed";
+  channelId?: string;
+  features?: string[];
 }
 
 export interface SkillGroup {

@@ -64,6 +64,12 @@ export default function App() {
                     The common thread? I build things. I speak up. And I don't
                     wait for permission.
                   </p>
+                  <p>
+                    Recently, I have been building local automation tools for
+                    short-form video workflows, combining Python, dashboards,
+                    FFmpeg, YouTube APIs, and AI-assisted development tools like
+                    Codex, Antigravity, and Caffeine.ai.
+                  </p>
                 </div>
                 <motion.div
                   className="flex flex-wrap gap-2 mt-6"
