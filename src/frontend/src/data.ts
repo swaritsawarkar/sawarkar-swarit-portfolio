@@ -78,6 +78,14 @@ export const projects: Project[] = [
     status: "in-progress",
   },
   {
+    id: "dust-to-dollars",
+    title: "Dust to Dollars",
+    description:
+      "An in-progress pixel-art resale game where players buy discarded lots, inspect and restore items, then negotiate with buyers to turn junk into profit. Supports optional Gemini or OpenAI-powered buyer dialogue with an offline fallback.",
+    tags: ["Godot 4", "GDScript", "Game Design", "AI Integration"],
+    status: "in-progress",
+  },
+  {
     id: "shorts-channel-os",
     title: "Shorts Channel OS",
     description:
